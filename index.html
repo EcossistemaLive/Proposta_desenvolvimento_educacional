@@ -330,31 +330,6 @@
             box-shadow: var(--accent-glow);
         }
 
-        /* FAB WhatsApp */
-        .fab-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0, 232, 0, 0.4);
-            z-index: 2000;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-
-        .fab-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px var(--accent-color);
-        }
-
         footer {
             background-color: #04101b;
             padding: var(--space-lg) 0;
@@ -408,10 +383,62 @@
             </div>
         </section>
 
+        <!-- Módulo de Urgência (NOVO) -->
+        <section id="urgencia" style="padding-bottom: 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: var(--space-md); color: #ff4444;">🚨 Módulo de Urgência (Execução Imediata)</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: var(--space-lg);">Ações corretivas focadas em resolver gaps críticos de postura e gestão.</p>
+                
+                <div class="method-grid" style="margin-bottom: var(--space-xl);">
+                    <!-- Card Vendas Urgente -->
+                    <div class="card" style="border-top: 4px solid #ff4444;">
+                        <span style="color: #ff4444; font-weight: bold; font-size: 0.9rem;">EQUIPE DE VENDAS</span>
+                        <h3 style="margin-top: 10px;">Postura e Técnicas de Persuasão</h3>
+                        <p style="color: var(--text-subtle); margin-bottom: 1rem;">Correção imediata de vícios de atendimento. Foco em imagem profissional e conversão.</p>
+                        <ul style="list-style: none; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Comunicação Assertiva</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Imagem Profissional</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Técnicas de Fechamento</li>
+                        </ul>
+                        <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/como-turbinar-suas-vendas,1ba0b8a6a28bb610VgnVCM1000004c00210aRCRD" target="_blank" class="btn" style="border-color: #ff4444; color: #ff4444; width: 100%;">Acessar Curso (Gestão Foco Cliente)</a>
+                    </div>
+
+                    <!-- Card Gerência Urgente -->
+                    <div class="card" style="border-top: 4px solid #ff4444;">
+                        <span style="color: #ff4444; font-weight: bold; font-size: 0.9rem;">GERENTES E LÍDERES</span>
+                        <h3 style="margin-top: 10px;">Gestão de Equipes e Loja</h3>
+                        <p style="color: var(--text-subtle); margin-bottom: 1rem;">Para assumir a liderança da mudança. Foco em feedback, delegação e rotina de loja.</p>
+                        <ul style="list-style: none; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Liderança de Equipes</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Gestão Visual de Loja</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Feedback Construtivo</li>
+                        </ul>
+                        <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/lideranca-na-gestao-de-equipes,61b0c094cd279910VgnVCM1000001b00320aRCRD" target="_blank" class="btn" style="border-color: #ff4444; color: #ff4444; width: 100%;">Acessar Curso (Liderança)</a>
+                    </div>
+
+                    <!-- Card Sócios e Gerentes (Vox2You) - NOVO -->
+                    <div class="card" style="border-top: 4px solid var(--accent-color);">
+                        <span style="color: var(--accent-color); font-weight: bold; font-size: 0.9rem;">SÓCIOS E GERENTES</span>
+                        <h3 style="margin-top: 10px;">Oratória e Comunicação (Vox2you)</h3>
+                        <p style="color: var(--text-subtle); margin-bottom: 1rem;">Curso presencial recomendado para alta performance em comunicação e vendas de ideias.</p>
+                        <ul style="list-style: none; color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Desinibição e Confiança</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Técnicas de Persuasão</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Storytelling Corporativo</li>
+                        </ul>
+                        <p style="color: #ffd700; font-size: 0.85rem; margin-bottom: 1.5rem; font-style: italic;">
+                            <i class="fas fa-exclamation-triangle"></i> Importante: Verificar disponibilidade de turmas na unidade local.
+                        </p>
+                        <a href="https://vox2you.com.br/" target="_blank" class="btn btn-primary" style="width: 100%;">Conhecer Vox2you</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Trilhas de Conhecimento (Timeline Vertical) -->
         <section id="trilhas">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: var(--space-lg);">Trilhas de Aprendizagem <span class="highlight">Obrigatórias</span></h2>
+                <h2 style="text-align: center; margin-bottom: var(--space-lg);">Trilhas de Aprendizagem <span class="highlight">Contínuas</span></h2>
                 
                 <div class="timeline">
                     
@@ -484,16 +511,6 @@
                         <p>Roleplay (simulação) com gerentes e workshop de precificação real.</p>
                     </div>
                 </div>
-
-                <!-- Perfil do Consultor -->
-                <div class="consultant-card card">
-                    <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/FOTO_LUIZPORTAL.jpeg" alt="Luiz Portal" class="consultant-img" loading="lazy">
-                    <div>
-                        <h3>Luiz Portal</h3>
-                        <p style="color: var(--text-muted);">Consultor Responsável</p>
-                        <p class="highlight" style="margin-top: 5px;">"Conhecimento é o único ativo que ninguém tira da sua empresa."</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -506,11 +523,6 @@
             <p style="color: var(--text-subtle); font-size: 0.8rem; margin-top: 10px;">Desenvolvido com o Sistema de Design Unificado V4</p>
         </div>
     </footer>
-
-    <!-- Botão Flutuante WhatsApp (FAB) -->
-    <a href="https://wa.me/5561996993134" class="fab-whatsapp" target="_blank" aria-label="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- Scripts de Interatividade e Performance -->
     <script>
