@@ -330,6 +330,62 @@
             box-shadow: var(--accent-glow);
         }
 
+        /* Hero Section com Imagem */
+        .hero-section {
+            padding-top: var(--header-height);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: var(--space-md);
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), var(--accent-glow);
+            border-color: var(--accent-color);
+        }
+
+        @media screen and (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding-top: calc(var(--header-height) + var(--space-lg));
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: var(--space-lg);
+            }
+
+            .hero-image-container {
+                width: 100%;
+            }
+            
+            .dynamic-title br {
+                display: none;
+            }
+        }
+
         footer {
             background-color: #04101b;
             padding: var(--space-lg) 0;
@@ -350,21 +406,24 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="visible">
-            <div class="container">
-                <div style="padding-top: var(--header-height); min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
+        <!-- Hero Section com Imagem -->
+        <section class="hero-section visible">
+            <div class="container" style="display: flex; align-items: center; width: 100%;">
+                <div class="hero-content">
                     <span style="color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 1rem; display: block;">Projeto: Reestruturação & Crescimento</span>
                     
                     <h1 class="dynamic-title">Programa de Capacitação<br>Padrão Casa Goianita</h1>
                     
-                    <p style="font-size: 1.3rem; max-width: 700px; color: var(--text-muted);">
+                    <p style="font-size: 1.3rem; max-width: 600px; color: var(--text-muted); margin-bottom: var(--space-md);">
                         Uma trilha de conhecimento estratégica para profissionalizar processos, elevar o atendimento e garantir a sustentabilidade do negócio.
                     </p>
                     
-                    <div style="margin-top: var(--space-md);">
+                    <div>
                         <a href="#trilhas" class="btn btn-primary">Ver Trilhas de Ensino</a>
                     </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Equipe engajada em treinamento corporativo" class="hero-image" loading="lazy">
                 </div>
             </div>
         </section>
@@ -379,6 +438,24 @@
                         <br>
                         <p style="text-align: right; font-size: 1rem; color: var(--text-primary);">- Análise da Consultoria</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVO: Compromisso com o Autodesenvolvimento (Cultura) -->
+        <section id="cultura" style="padding-top: 0;">
+            <div class="container">
+                <div class="card fade-in" style="border-left: 4px solid var(--text-primary);">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;"><i class="fas fa-book-reader" style="color: var(--accent-color); margin-right: 10px;"></i> Compromisso com o Autodesenvolvimento</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        Conforme estabelecido nas diretrizes do novo <strong>Conselho Gestor</strong>, a modernização da Casa Goianita exige mais do que novas ferramentas; exige uma nova mentalidade.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        O desenvolvimento contínuo é agora um <strong>pilar inegociável</strong> para todos os sócios e colaboradores. Espera-se que cada membro da equipe assuma o protagonismo de sua própria carreira, buscando ativamente o aprimoramento técnico e comportamental. 
+                    </p>
+                    <p style="color: var(--accent-color); font-weight: 600; font-size: 0.95rem;">
+                        "A empresa fornecerá as trilhas e ferramentas, mas o compromisso com a excelência deve vir de cada um."
+                    </p>
                 </div>
             </div>
         </section>
@@ -476,7 +553,7 @@
                             <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 2: GESTÃO (PRIORIDADE MÁXIMA)</span>
                             <h3>Formação de Preço de Venda</h3>
                             <p style="color: var(--text-subtle); margin-bottom: 1rem;">Combate ao "feeling". Aprenda a calcular margem real, markup e ponto de equilíbrio. Vital para Sócios e Compras.</p>
-                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/formacao-do-preco-de-venda,7490b8a6a28bb610VgnVCM1000004c00210aRCRD" target="_blank" class="btn btn-primary" aria-label="Acessar curso de Preço">Acessar Curso</a>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/formacao-do-preco-de-venda,7490b8a6a28bb610VgnVCM1000004c00210aRCRD" target="_blank" class="btn" aria-label="Acessar curso de Preço">Acessar Curso</a>
                         </div>
                     </div>
 
