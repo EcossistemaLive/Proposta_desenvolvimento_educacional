@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plano de Capacitação Estratégica para Casa Goianita - Live Consultoria">
+    <title>Plano de Capacitação | Casa Goianita</title>
+    
+    <!-- Preconnect para Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fontes: Poppins (Primária) e Merriweather (Secundária/Diagnóstico) -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (FontAwesome para UI) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* * 1. NÚCLEO DA IDENTIDADE VISUAL (TOKENS) 
+         */
+        :root {
+            /* Paleta de Cores */
+            --primary-bg: #06192a;     /* Azul Petróleo - Fundo */
+            --card-bg: #0A243D;        /* Azul Escuro - Cards */
+            --accent-color: #00e800;   /* Verde Vibrante - Destaques */
+            --accent-glow: 0 0 8px rgba(0, 232, 0, 0.7); /* Brilho */
+            
+            /* Tipografia */
+            --text-primary: #ffffff;
+            --text-muted: #cccccc;
+            --text-subtle: #a0a0a0;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+            
+            /* Tamanhos de Fonte */
+            --font-size-base: 1.1rem; /* Mínimo 16px+ */
+            --font-size-h1: clamp(2rem, 5vw, 3rem);
+            --font-size-h2: clamp(1.8rem, 4vw, 2.5rem);
+            
+            /* Espaçamento */
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            
+            /* Bordas e UI */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 12px;
+            --header-height: 70px;
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            /* Textura de Fundo Fixa - Brand Core */
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Acessibilidade: Foco Visível */
+        :focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* 2. ARQUITETURA E ESTRUTURA (COMPONENTES) */
+
+        /* Header Dinâmico */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(6, 25, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        header.scroll-hide {
+            transform: translateY(-100%);
+        }
+
+        .logo-img {
+            height: 40px; /* Faixa fina */
+            width: auto;
+        }
+
+        /* Container Central */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: var(--space-xl) 0;
+            opacity: 0; /* Para animação fade-in */
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tipografia de Impacto */
+        h1, h2, h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            font-weight: 700;
+        }
+
+        /* H1 com Gradiente Animado (Inovação CSS) */
+        h1.dynamic-title {
+            background: linear-gradient(90deg, #ffffff, var(--accent-color), #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-move 3s linear infinite;
+        }
+
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Texto de Destaque */
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* 3. COMPONENTES ESPECÍFICOS */
+
+        /* Card Padrão Refinado */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--space-md);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), var(--accent-glow);
+            border-color: rgba(0, 232, 0, 0.3);
+        }
+
+        /* Card de Diagnóstico (Efeito von Restorff) */
+        .card-diagnosis {
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .diagnosis-text {
+            font-family: var(--font-secondary); /* Merriweather */
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Botões e CTAs (Lei de Fitts) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-height: 44px; /* Acessibilidade Mobile */
+            cursor: pointer;
+            margin-top: var(--space-sm);
+        }
+
+        .btn:hover, .btn:focus-visible {
+            background-color: var(--accent-color);
+            color: #000;
+            box-shadow: var(--accent-glow);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #06192a;
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            border-color: #fff;
+        }
+
+        /* 4. LINHA DO TEMPO VERTICAL ANIMADA */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Linha Central */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: var(--accent-glow);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0; /* Começa invisível para animação JS */
+            transition: all 0.6s ease-out;
+        }
+
+        .timeline-item.left { left: 0; transform: translateX(-50px); }
+        .timeline-item.right { left: 50%; transform: translateX(50px); }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Círculo na linha */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--primary-bg);
+            border: 4px solid var(--accent-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+
+        .timeline-item.right::after { left: -10px; }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--accent-glow);
+        }
+
+        /* Responsividade da Timeline */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item.left, .timeline-item.right { left: 0; }
+            
+            .timeline-item.left::after, .timeline-item.right::after {
+                left: 21px;
+            }
+
+            .timeline-item.left { transform: translateX(0) translateY(20px); }
+            .timeline-item.right { transform: translateX(0) translateY(20px); }
+        }
+
+        /* Grid de Metodologia */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        /* Perfil Consultor */
+        .consultant-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .consultant-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: var(--accent-glow);
+        }
+
+        /* FAB WhatsApp */
+        .fab-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 232, 0, 0.4);
+            z-index: 2000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .fab-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        footer {
+            background-color: #04101b;
+            padding: var(--space-lg) 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: var(--space-xl);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Fixo -->
+    <header id="main-header">
+        <div class="logo-container" style="padding-left: 5%;">
+            <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Logo Live Consultoria" class="logo-img">
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="visible">
+            <div class="container">
+                <div style="padding-top: var(--header-height); min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 1rem; display: block;">Projeto: Reestruturação & Crescimento</span>
+                    
+                    <h1 class="dynamic-title">Programa de Capacitação<br>Padrão Casa Goianita</h1>
+                    
+                    <p style="font-size: 1.3rem; max-width: 700px; color: var(--text-muted);">
+                        Uma trilha de conhecimento estratégica para profissionalizar processos, elevar o atendimento e garantir a sustentabilidade do negócio.
+                    </p>
+                    
+                    <div style="margin-top: var(--space-md);">
+                        <a href="#trilhas" class="btn btn-primary">Ver Trilhas de Ensino</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnóstico Estratégico (Merriweather + Card) -->
+        <section id="diagnostico">
+            <div class="container">
+                <div class="card card-diagnosis fade-in">
+                    <h2 class="highlight">Diagnóstico Estratégico</h2>
+                    <div class="diagnosis-text">
+                        <p>"A excelência não é um ato, mas um hábito. O diagnóstico operacional da Casa Goianita revelou que, embora tenhamos tradição, sofremos com processos manuais, 'feeling' excessivo nas compras e falta de padrão no atendimento. Para sustentar o novo ERP e o crescimento, precisamos transformar a mentalidade da equipe através do conhecimento técnico."</p>
+                        <br>
+                        <p style="text-align: right; font-size: 1rem; color: var(--text-primary);">- Análise da Consultoria</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trilhas de Conhecimento (Timeline Vertical) -->
+        <section id="trilhas">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: var(--space-lg);">Trilhas de Aprendizagem <span class="highlight">Obrigatórias</span></h2>
+                
+                <div class="timeline">
+                    
+                    <!-- Trilha 1: Frente de Loja -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content card">
+                            <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 1: FRENTE DE LOJA</span>
+                            <h3>Atendimento ao Cliente</h3>
+                            <p style="color: var(--text-subtle); margin-bottom: 1rem;">Padronização da abordagem inicial. Vital para Caixas e Vendedores garantirem a experiência do cliente.</p>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/atendimento-ao-cliente,0b3a0e7df4539910VgnVCM1000001b00320aRCRD" target="_blank" class="btn" aria-label="Acessar curso de Atendimento">Acessar Curso</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-content card">
+                            <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 1: FRENTE DE LOJA</span>
+                            <h3>Qualidade no Atendimento</h3>
+                            <p style="color: var(--text-subtle); margin-bottom: 1rem;">Foco em resolução de problemas e postura profissional. Essencial para reduzir atritos e reclamações.</p>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/qualidade-no-atendimento-ao-cliente,b680b8a6a28bb610VgnVCM1000004c00210aRCRD" target="_blank" class="btn" aria-label="Acessar curso de Qualidade">Acessar Curso</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-content card">
+                            <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 1: VENDAS (CRUCIAL)</span>
+                            <h3>Como Aumentar suas Vendas</h3>
+                            <p style="color: var(--text-subtle); margin-bottom: 1rem;">Técnicas de upsell e fechamento. Obrigatório para bater as novas metas comissionadas.</p>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/como-aumentar-suas-vendas,5cd526ad1cd0b410VgnVCM1000003b74010aRCRD" target="_blank" class="btn" aria-label="Acessar curso de Vendas">Acessar Curso</a>
+                        </div>
+                    </div>
+
+                    <!-- Trilha 2: Backoffice -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content card" style="border-color: var(--accent-color);">
+                            <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 2: GESTÃO (PRIORIDADE MÁXIMA)</span>
+                            <h3>Formação de Preço de Venda</h3>
+                            <p style="color: var(--text-subtle); margin-bottom: 1rem;">Combate ao "feeling". Aprenda a calcular margem real, markup e ponto de equilíbrio. Vital para Sócios e Compras.</p>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/formacao-do-preco-de-venda,7490b8a6a28bb610VgnVCM1000004c00210aRCRD" target="_blank" class="btn btn-primary" aria-label="Acessar curso de Preço">Acessar Curso</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-content card">
+                            <span style="color: var(--accent-color); font-size: 0.9rem; font-weight: bold;">TRILHA 2: RH E LIDERANÇA</span>
+                            <h3>Jornada do Colaborador</h3>
+                            <p style="color: var(--text-subtle); margin-bottom: 1rem;">Estruturação do onboarding e retenção de talentos. Fundamental para a nova fase de profissionalização.</p>
+                            <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline/jornada-do-colaborador,36dd7524f9de1810VgnVCM100000d701210aRCRD" target="_blank" class="btn" aria-label="Acessar curso de RH">Acessar Curso</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodologia de Execução -->
+        <section id="metodologia">
+            <div class="container">
+                <h2>Ciclo de Implementação <span class="highlight">(30 Dias)</span></h2>
+                <div class="method-grid">
+                    <div class="card">
+                        <h3 class="highlight">01. Lançamento</h3>
+                        <p>Comunicar obrigatoriedade e vincular certificação à avaliação de desempenho.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="highlight">02. Estudo</h3>
+                        <p>Liberação de 1h remunerada semanal para estudo focado na plataforma Sebrae.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="highlight">03. Validação</h3>
+                        <p>Roleplay (simulação) com gerentes e workshop de precificação real.</p>
+                    </div>
+                </div>
+
+                <!-- Perfil do Consultor -->
+                <div class="consultant-card card">
+                    <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/FOTO_LUIZPORTAL.jpeg" alt="Luiz Portal" class="consultant-img" loading="lazy">
+                    <div>
+                        <h3>Luiz Portal</h3>
+                        <p style="color: var(--text-muted);">Consultor Responsável</p>
+                        <p class="highlight" style="margin-top: 5px;">"Conhecimento é o único ativo que ninguém tira da sua empresa."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live Rodapé" style="height: 30px; margin-bottom: 20px;">
+            <p style="color: var(--text-subtle); font-size: 0.9rem;">&copy; 2025 Live Consultoria. Todos os direitos reservados.</p>
+            <p style="color: var(--text-subtle); font-size: 0.8rem; margin-top: 10px;">Desenvolvido com o Sistema de Design Unificado V4</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp (FAB) -->
+    <a href="https://wa.me/5561996993134" class="fab-whatsapp" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts de Interatividade e Performance -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Intersection Observer para Animações (Performance)
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Opcional: parar de observar após animar para economizar recursos
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            // Observar seções gerais
+            document.querySelectorAll('section, .card-diagnosis').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Observar itens da timeline individualmente (sequencial)
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                // Adicionar delay inline via JS para evitar CSS complexo
+                item.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(item);
+            });
+
+            // 2. Header Scroll Effect (UX)
+            let lastScrollTop = 0;
+            const header = document.getElementById('main-header');
+            
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    // Rolando para baixo -> Esconder ou diminuir
+                    if (scrollTop > lastScrollTop) {
+                        header.classList.add('scroll-hide');
+                    } else {
+                        header.classList.remove('scroll-hide');
+                    }
+                } else {
+                    header.classList.remove('scroll-hide');
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</body>
+</html>
